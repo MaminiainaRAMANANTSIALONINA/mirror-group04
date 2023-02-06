@@ -1,11 +1,12 @@
 import web
+
 web.config.debug = False
 
 urls = (
-    '/', 'index'
+    '/', 'Index'
 )
 
-class index:
+class Index:
     def GET(self):
         db = web.database(
             dbn='mysql',
@@ -13,23 +14,21 @@ class index:
             port=3306,
             user='insigroup00',
             pw='insigroup00',
-            db='project00',
+            db='project00'
         )
-        a2=db.select('Album', limit=10)
-        artists=db.select('Artist', limit=10)
-        result = '<html><head><title>test</title></head>'
-        result += '<body><table border=2>'
-        result +='<tr> <th> Album </th> <th> Artist </th></tr>'
-        for a in a2:
-            result +='<tr> <td>'+ a.Title + ',</br>'
-            result+='  </tr></td>'
-        result += '</table></body>'
-        result += '</html>'
+        albums = db.select('Album', limit=10)
+        artists = db.select('Artist', limit=10)
+        genres = db.select('Genre', limit=10)
+        result = '<html><head><title>ListAlbum</title></head><body>'
+        result += '<table border="1">'
+        result += '<tr><th>Artist</th><th>Album</th><th>Genre</th></tr>'
+        for artist in artists:
+            result += '<tr>'
+            result += '<td>' + artist.Name + '</td>'
+            result += '</tr>'
+        result += '</table>'
+        result += '</body></html>'
         return result
-         #for a in artists:
-            
-           
-
 if __name__ == "__main__":
     app = web.application(urls, globals())
     app.run()
