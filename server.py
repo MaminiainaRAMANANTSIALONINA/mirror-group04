@@ -22,9 +22,13 @@ class Index:
         result = '<html><head><title>ListAlbum</title></head><body>'
         result += '<table border="1">'
         result += '<tr><th>Artist</th><th>Album</th><th>Genre</th></tr>'
+        
         for artist in artists:
             result += '<tr>'
             result += '<td>' + artist.Name + '</td>'
+            for album in albums:
+                result += '<td>' + album.Title + '</td>'
+                break
             result += '</tr>'
         result += '</table>'
         result += '</body></html>'
