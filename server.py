@@ -29,6 +29,9 @@ class Index:
             for album in albums:
                 result += '<td>' + album.Title + '</td>'
                 break
+            for genre in genres:
+                result +='<td>' + genre.Name + '</td>'
+                break
             result += '</tr>'
         result += '</table>'
         result += '</body></html>'
