@@ -1,4 +1,5 @@
 import web
+from database import Db 
 
 web.config.debug = False
 
@@ -8,14 +9,8 @@ urls = (
 
 class Index:
     def GET(self):
-        db = web.database(
-            dbn='mysql',
-            host='tmp-insi.rktmb.org',
-            port=3306,
-            user='insigroup00',
-            pw='insigroup00',
-            db='project00'
-        )
+        d = Db()
+        db = d.getDb();
         albums = db.select('Album', limit=10)
         artists = db.select('Artist', limit=10)
         genres = db.select('Genre', limit=10)
