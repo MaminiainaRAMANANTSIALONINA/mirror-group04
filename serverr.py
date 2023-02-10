@@ -21,7 +21,7 @@ class Index:
         genres = db.select('Genre', limit = 10)
         
         result = '<html><head><title>test</title></head><body>'
-        result = '<div><a href="#">Lien1<a><a href="#">Lien2<a><a href="#">Lien3<a><a href="#">Lien4<a></div>'
+        result = '<div><a href="#">Id<a> | <a href="#">Artist<a> | <a href="#">Genre</a> | <a href="#">Album<a></div>'
         result += '<table border="1">'
         result += '<tr><th>Id_artist</th><th>Artist</th><th>Genre</th><th>Album</th></tr>'
         for artist in artists:
