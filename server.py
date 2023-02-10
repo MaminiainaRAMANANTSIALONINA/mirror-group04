@@ -10,7 +10,7 @@ urls = (
 class Index:
     def GET(self):
         d = Db()
-        db = d.getDb();
+        db = d.getDb()
         albums = db.select('Album', limit=10)
         artists = db.select('Artist', limit=10)
         genres = db.select('Genre', limit=10)
