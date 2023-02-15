@@ -5,7 +5,7 @@ class Db:
             dbn='mysql',
             host='tmp-insi.rktmb.org',
             port=3306,
-            user='insigroup00b',
+            user='insigroup00',
             pw='insigroup00',
             db='project00'
         )
